@@ -1,4 +1,7 @@
-const products = [];
+// import the class from Models
+const Product = require('../models/product');
+
+// const products = [];
 
 exports.getAddProduct = (req, res, next) => {
   res.render('add-product', {
@@ -12,11 +15,16 @@ exports.getAddProduct = (req, res, next) => {
 
 
 exports.postAddProduct = (req, res, next) => {
-  products.push({ title: req.body.title });
+  //instantiate new product from class, pass it the title from form then save it to array
+  const product = new Product(req.body.title);
+  product.save();
+  // products.push({ title: req.body.title });
   res.redirect('/');
 }
 
 exports.getProducts = (req, res, next) => {
+  // next, instantiate products and fetch them from array
+  const products = Product.fetchAll();
   res.render('shop', {
     prods: products,
     pageTitle: 'Shop',
