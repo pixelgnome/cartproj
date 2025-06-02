@@ -1,0 +1,43 @@
+// import the class from Models
+const Product = require("../models/product");
+
+// const products = [];
+
+
+exports.getProducts = (req, res, next) => {
+  // next, instantiate products and fetch them from array
+  Product.fetchAll((products) => {
+    res.render("shop/product-list", {
+      prods: products,
+      pageTitle: "All Products",
+      path: "/products",
+    });
+  });
+};
+
+
+exports.getIndexPage = (req, res, next) => {
+    // next, instantiate products and fetch them from array
+  Product.fetchAll((products) => {
+    res.render("shop/index", {
+      prods: products,
+      pageTitle: "Home Page",
+      path: "/"
+    });
+  });
+};
+
+
+exports.getCart = (req, res, next) => {
+    res.render("shop/cart", {
+      pageTitle: "Your Cart",
+      path: "/cart"
+    });
+};
+
+exports.getCheckout = (req, res, next) => {
+    res.render("shop/checkout", {
+      pageTitle: "Checkout",
+      path: "/checkout"
+    });
+};
