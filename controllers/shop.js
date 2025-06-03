@@ -15,6 +15,14 @@ exports.getProducts = (req, res, next) => {
   });
 };
 
+// get individual product by ID
+exports.getProduct = (req, res, next) => {
+  const prodId = req.params.productId;
+  Product.findByID(prodId, product => {
+    console.log(product);
+  })
+  res.redirect('/'); 
+};
 
 exports.getIndexPage = (req, res, next) => {
     // next, instantiate products and fetch them from array
