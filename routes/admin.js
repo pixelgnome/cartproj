@@ -2,7 +2,6 @@ const path = require('path');
 
 const express = require('express');
 
-// import products controller
 const adminController = require('../controllers/admin');
 
 const router = express.Router();

@@ -6,7 +6,7 @@ const shopController = require('../controllers/shop');
 
 const router = express.Router();
 
-router.get('/', shopController.getIndexPage);
+router.get('/', shopController.getIndex);
 
 router.get('/products', shopController.getProducts);
 
@@ -14,12 +14,10 @@ router.get('/products/:productId', shopController.getProduct);
 
 router.get('/cart', shopController.getCart);
 
-// capture the id of the product to go to cart
 router.post('/cart', shopController.postCart);
 
 router.get('/orders', shopController.getOrders);
 
 router.get('/checkout', shopController.getCheckout);
-
 
 module.exports = router;
