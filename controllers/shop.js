@@ -1,7 +1,6 @@
 // import the class from Models
-const Product = require("../models/product");
-
-// const products = [];
+const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 exports.getProducts = (req, res, next) => {
   // next, instantiate products and fetch them from array
@@ -45,6 +44,13 @@ exports.getCart = (req, res, next) => {
     path: "/cart",
   });
 };
+
+exports.postCart = (req, res, next) => {
+  const prodId = req.body.productId;
+  
+  res.redirect("/cart");
+};
+
 
 exports.getCheckout = (req, res, next) => {
   res.render("shop/checkout", {

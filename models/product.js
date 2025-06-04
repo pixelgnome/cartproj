@@ -3,12 +3,12 @@
 const fs = require("fs");
 const path = require("path");
 
- const p = path.join(
-    path.dirname(require.main.filename),
-    "data",
-    "products.json"
-  );
-  
+const p = path.join(
+  path.dirname(require.main.filename),
+  "data",
+  "products.json"
+);
+
 const getProductsFromFile = (cb) => {
   fs.readFile(p, (err, fileContent) => {
     if (err) {
@@ -36,15 +36,15 @@ module.exports = class Product {
         console.log(err);
       });
     });
-}
+  }
 
   static fetchAll(cb) {
     getProductsFromFile(cb);
   }
 
   static findByID(id, cb) {
-    getProductsFromFile(products => {
-      const product = products.find(p => p.id === id);
+    getProductsFromFile((products) => {
+      const product = products.find((p) => p.id === id);
       cb(product);
     });
   }
