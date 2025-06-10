@@ -52,7 +52,7 @@ exports.getEditProduct = (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
-};
+}; 
 
 exports.postEditProduct = (req, res, next) => {
   const prodId = req.body.productId;
